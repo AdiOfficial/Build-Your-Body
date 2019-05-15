@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">На-качай-ся!</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">На-Качай-Ся!</string>
+
+    <string name="fragment_main_btn_start">В качалку!</string>
 </resources>
