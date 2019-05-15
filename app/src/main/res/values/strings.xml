@@ -2,4 +2,7 @@
     <string name="app_name">На-Качай-Ся!</string>
 
     <string name="fragment_main_btn_start">В качалку!</string>
+    <string name="bottom_menu_money">Работа</string>
+    <string name="bottom_menu_health">Здоровье</string>
+    <string name="bottom_menu_shop">Магазин</string>
 </resources>

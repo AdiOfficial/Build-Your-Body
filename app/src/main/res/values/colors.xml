@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black">#292723</color>
+    <color name="gray">#4D292723</color>
     <color name="orange">#FF5722</color>
     <color name="yellow">#FFC107</color>
     <color name="blue">#3F51B5</color>
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
 
     <color name="colorPrimary">@color/yellow</color>
     <color name="colorPrimaryDark">@color/orange</color>

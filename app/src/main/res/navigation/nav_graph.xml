@@ -9,6 +9,13 @@
               android:name="com.anaumchik.buildyourbody.ui.main.MainFragment"
               android:label="MainFragment"
               tools:layout="@layout/fragment_main">
+        <action android:id="@+id/action_to_game" app:destination="@id/game_dest"/>
+    </fragment>
+
+    <fragment android:id="@+id/game_dest"
+              android:name="com.anaumchik.buildyourbody.ui.game.GameFragment"
+              android:label="GameFragment"
+              tools:layout="@layout/fragment_game">
     </fragment>
 
 </navigation>

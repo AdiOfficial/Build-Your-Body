@@ -30,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgLauncher"
             android:layout_marginBottom="64dp"
-            android:background="@drawable/btn_background_main"
+            android:background="@drawable/btn_bg_main"
             android:padding="8dp"
             android:textSize="24sp"
     />
