@@ -5,4 +5,16 @@
     <string name="bottom_menu_work">Работа</string>
     <string name="bottom_menu_health">Здоровье</string>
     <string name="bottom_menu_shop">Шоппинг</string>
+
+    <string-array name="health_title">
+        <item>Капнуть йод на язык</item>
+        <item>Выпить аспирин</item>
+        <item>Натереться крапивой</item>
+    </string-array>
+
+    <string-array name="health_description">
+        <item>Йод расжижает кровь</item>
+        <item>Аспирин бодрит тело и дух</item>
+        <item>Крапива заставляет бегать быстрее</item>
+    </string-array>
 </resources>

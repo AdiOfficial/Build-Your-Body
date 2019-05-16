@@ -34,10 +34,10 @@
                 android:drawableTint="@color/green"
                 android:drawablePadding="-2dp"
                 android:includeFontPadding="false"
-                android:text="99.56"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/imgHealth"
+                tools:text="99.56"
         />
 
         <TextView
@@ -51,10 +51,10 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:includeFontPadding="false"
-                android:text="2 month 25 days in a game"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/imgHealth"
+                tools:text="2 month 25 days in a game"
         />
 
         <ImageView
@@ -78,12 +78,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:progressDrawable="@drawable/pb_bg_health"
-                android:progress="80"
                 app:layout_constraintTop_toTopOf="@+id/imgHealth"
                 app:layout_constraintStart_toEndOf="@+id/imgHealth"
                 app:layout_constraintEnd_toStartOf="@+id/imgExperience"
                 app:layout_constraintBottom_toBottomOf="@+id/imgHealth"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                tools:progress="80"
         />
 
         <ImageView
@@ -106,12 +106,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:progressDrawable="@drawable/pb_bg_experience"
-                android:progress="40"
                 app:layout_constraintTop_toTopOf="@+id/imgExperience"
                 app:layout_constraintStart_toEndOf="@+id/imgExperience"
                 app:layout_constraintEnd_toEndOf="@+id/imgTime"
                 app:layout_constraintBottom_toBottomOf="@+id/imgExperience"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                tools:progress="40"
         />
 
         <ImageView
@@ -135,12 +135,12 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="8dp"
                 android:progressDrawable="@drawable/pb_bg_time"
-                android:progress="90"
                 app:layout_constraintTop_toTopOf="@+id/imgTime"
                 app:layout_constraintStart_toEndOf="@+id/imgTime"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/imgTime"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                tools:progress="90"
         />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

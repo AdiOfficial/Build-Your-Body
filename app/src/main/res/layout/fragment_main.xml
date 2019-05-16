@@ -16,7 +16,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/btnStart"
-            android:src="@drawable/ic_bodybuilder"
+            android:src="@drawable/ic_launcher"
     />
 
     <Button
@@ -34,6 +34,8 @@
             android:background="@drawable/btn_bg_main"
             android:padding="8dp"
             android:textSize="24sp"
+            android:enabled="false"
+            tools:enabled="true"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

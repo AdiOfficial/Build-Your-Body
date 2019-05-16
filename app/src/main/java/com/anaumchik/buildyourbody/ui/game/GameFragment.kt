@@ -1,11 +1,14 @@
 package com.anaumchik.buildyourbody.ui.game
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.anaumchik.buildyourbody.R
+import com.anaumchik.buildyourbody.data.entity.Player
 import com.anaumchik.buildyourbody.data.utils.bottomNavMenuRouteTo
 import com.anaumchik.buildyourbody.data.utils.deselectItems
 import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
@@ -35,5 +38,25 @@ class GameFragment : Fragment() {
         toolbarTitle(R.string.app_name)
         bottom_nav_view.deselectItems()
         bottom_nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        observeViewModel()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun observeViewModel() {
+        viewModel.updateGameProgress.observe(this, Observer { updateGameProgress(it) })
+    }
+
+    private fun updateGameProgress(player: Player) {
+        tvMoney.text = player.money.toString()
+        tvDaysInGame.text = "${player.daysInGame} days in a game"
+
+        pbHealth.progress = player.health
+
+        pbTime.max = player.maxTime
+        pbTime.progress = player.time
+
+        pbExperience.max = player.maxExperience
+        pbExperience.progress = player.experience
     }
 }

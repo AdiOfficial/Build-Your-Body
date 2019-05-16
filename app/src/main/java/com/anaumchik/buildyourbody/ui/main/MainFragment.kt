@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.anaumchik.buildyourbody.R
 import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
 import com.anaumchik.buildyourbody.data.utils.routeTo
@@ -21,5 +22,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         enableToolbarBackButton(false)
         btnStart.setOnClickListener { routeTo(R.id.game_dest) }
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.enableStartBtn.observe(this, Observer { btnStart.isEnabled = true })
     }
 }
