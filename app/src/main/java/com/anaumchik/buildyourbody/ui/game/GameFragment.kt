@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anaumchik.buildyourbody.R
 import com.anaumchik.buildyourbody.data.utils.bottomNavMenuRouteTo
+import com.anaumchik.buildyourbody.data.utils.deselectItems
+import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
+import com.anaumchik.buildyourbody.data.utils.toolbarTitle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_game.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -28,6 +31,9 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        enableToolbarBackButton(true)
+        toolbarTitle(R.string.app_name)
+        bottom_nav_view.deselectItems()
         bottom_nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 }

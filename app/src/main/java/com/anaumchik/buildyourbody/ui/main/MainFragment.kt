@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anaumchik.buildyourbody.R
+import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
 import com.anaumchik.buildyourbody.data.utils.routeTo
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -18,6 +19,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        enableToolbarBackButton(false)
         btnStart.setOnClickListener { routeTo(R.id.game_dest) }
     }
 }

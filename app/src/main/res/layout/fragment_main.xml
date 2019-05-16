@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:text="@string/fragment_main_btn_start"
+            android:elevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

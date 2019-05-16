@@ -12,12 +12,16 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.anaumchik.buildyourbody.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 fun Context.string(@StringRes stringRes: Int): String = this.getString(stringRes)
+fun Fragment.string(@StringRes stringRes: Int): String = this.getString(stringRes)
 
 fun Context.color(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
 
@@ -44,3 +48,17 @@ fun ViewPropertyAnimator.animationEndListener(endAction: () -> Unit): ViewProper
         override fun onAnimationEnd(animation: Animator?) = endAction.invoke()
     })
 
+
+fun BottomNavigationView.deselectItems() {
+    menu.getItem(0).isCheckable = false
+    menu.getItem(1).isCheckable = false
+    menu.getItem(2).isCheckable = false
+}
+
+fun Fragment.toolbarTitle(@StringRes stringRes: Int) {
+    requireActivity().toolbar.title = string(stringRes)
+}
+
+fun Fragment.enableToolbarBackButton(enable : Boolean) {
+    (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(enable)
+}
