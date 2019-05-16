@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#292723</color>
-    <color name="gray">#4D292723</color>
+    <color name="gray_light">#1A292723</color>
+    <color name="gray_dark">#33292723</color>
     <color name="orange">#FF5722</color>
     <color name="yellow">#FFC107</color>
     <color name="blue">#3F51B5</color>

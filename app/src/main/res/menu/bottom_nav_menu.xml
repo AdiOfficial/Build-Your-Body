@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/navigation_money"
-            android:icon="@drawable/ic_money"
-            android:title="@string/bottom_menu_money"/>
+            android:id="@+id/navigation_work"
+            android:icon="@drawable/ic_work"
+            android:title="@string/bottom_menu_work"/>
 
     <item
             android:id="@+id/navigation_health"

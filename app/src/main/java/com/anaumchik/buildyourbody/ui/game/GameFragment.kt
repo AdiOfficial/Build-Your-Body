@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anaumchik.buildyourbody.R
-import com.anaumchik.buildyourbody.data.utils.animationEndListener
+import com.anaumchik.buildyourbody.data.utils.bottomNavMenuRouteTo
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_game.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -16,12 +16,9 @@ class GameFragment : Fragment() {
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_money -> {
-            }
-            R.id.navigation_health -> {
-            }
-            R.id.navigation_shop -> {
-            }
+            R.id.navigation_work -> bottomNavMenuRouteTo(R.id.work_dest)
+            R.id.navigation_health -> bottomNavMenuRouteTo(R.id.health_dest)
+            R.id.navigation_shop -> bottomNavMenuRouteTo(R.id.shop_dest)
         }
         false
     }
@@ -31,30 +28,6 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         bottom_nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        initBuilderAnim()
-
-    }
-
-    private fun initBuilderAnim() {
-        imgBodybuilder.animate()
-            .scaleX(1.2f)
-            .scaleY(1.2f)
-            .setDuration(DURATION_ANIMATION)
-            .animationEndListener {
-                imgBodybuilder.animate()
-                    .scaleX(1.0f)
-                    .scaleY(1.0f)
-                    .setDuration(DURATION_ANIMATION)
-                    .animationEndListener { initBuilderAnim() }
-                    .start()
-            }
-            .start()
-    }
-
-    companion object {
-        private const val DURATION_ANIMATION = 1000L
     }
 }

@@ -5,125 +5,167 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".ui.game.GameFragment">
 
-    <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="Name"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHeader"
+            android:layout_width="0dp"
+            android:background="@color/gray_light"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imgBodybuilder"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvDays"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-    />
-
-    <TextView
-            android:id="@+id/tvDays"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginEnd="16dp"
-            android:textSize="16sp"
-            android:text="Days in a game 1"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@+id/tvName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-    />
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            android:layout_height="wrap_content">
 
-    <ImageView
-            android:id="@+id/imgHealth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/ic_health"
-            android:tint="@color/orange"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pbHealth"
-    />
+        <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+        />
 
-    <ProgressBar
-            android:id="@+id/pbHealth"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:progressDrawable="@drawable/pb_bg_health"
-            android:progress="80"
-            app:layout_constraintTop_toTopOf="@id/imgHealth"
-            app:layout_constraintStart_toEndOf="@+id/imgHealth"
-            app:layout_constraintEnd_toStartOf="@+id/imgExperience"
-            app:layout_constraintBottom_toBottomOf="@+id/imgHealth"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-    />
+        <ImageView
+                android:id="@+id/imgHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/ic_health"
+                android:tint="@color/orange"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pbHealth"
+                app:layout_constraintBottom_toTopOf="@+id/tvMoney"
+        />
 
-    <ImageView
-            android:id="@+id/imgExperience"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/ic_experience"
-            android:tint="@color/green"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@+id/pbHealth"
-            app:layout_constraintEnd_toStartOf="@id/pbExperience"
-    />
+        <ProgressBar
+                android:id="@+id/pbHealth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:progressDrawable="@drawable/pb_bg_health"
+                android:progress="80"
+                app:layout_constraintTop_toTopOf="@+id/imgHealth"
+                app:layout_constraintStart_toEndOf="@+id/imgHealth"
+                app:layout_constraintEnd_toStartOf="@+id/imgExperience"
+                app:layout_constraintBottom_toBottomOf="@+id/imgHealth"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        />
 
-    <ProgressBar
-            android:id="@+id/pbExperience"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:progressDrawable="@drawable/pb_bg_experience"
-            android:progress="40"
-            app:layout_constraintTop_toTopOf="@id/imgExperience"
-            app:layout_constraintStart_toEndOf="@+id/imgExperience"
-            app:layout_constraintEnd_toEndOf="@+id/imgTime"
-            app:layout_constraintBottom_toBottomOf="@+id/imgExperience"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-    />
+        <ImageView
+                android:id="@+id/imgExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/ic_experience"
+                android:tint="@color/green"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@+id/pbHealth"
+                app:layout_constraintEnd_toStartOf="@+id/pbExperience"
+        />
 
-    <ImageView
-            android:id="@+id/imgTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/ic_time"
-            android:tint="@color/blue"
-            app:layout_constraintEnd_toStartOf="@+id/pbTime"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@+id/pbExperience"
-    />
+        <ProgressBar
+                android:id="@+id/pbExperience"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:progressDrawable="@drawable/pb_bg_experience"
+                android:progress="40"
+                app:layout_constraintTop_toTopOf="@+id/imgExperience"
+                app:layout_constraintStart_toEndOf="@+id/imgExperience"
+                app:layout_constraintEnd_toEndOf="@+id/imgTime"
+                app:layout_constraintBottom_toBottomOf="@+id/imgExperience"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        />
 
-    <ProgressBar
-            android:id="@+id/pbTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:progressDrawable="@drawable/pb_bg_time"
-            android:progress="90"
-            app:layout_constraintTop_toTopOf="@id/imgTime"
-            app:layout_constraintStart_toEndOf="@+id/imgTime"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/imgTime"
-            android:layout_marginEnd="16dp"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-    />
+        <ImageView
+                android:id="@+id/imgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/ic_time"
+                android:tint="@color/blue"
+                app:layout_constraintEnd_toStartOf="@+id/pbTime"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@+id/pbExperience"
+        />
 
+        <ProgressBar
+                android:id="@+id/pbTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"
+                android:progressDrawable="@drawable/pb_bg_time"
+                android:progress="90"
+                app:layout_constraintTop_toTopOf="@+id/imgTime"
+                app:layout_constraintStart_toEndOf="@+id/imgTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgTime"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        />
+
+        <TextView
+                android:id="@+id/tvMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:drawableLeft="@drawable/ic_money"
+                android:drawableTint="@color/green"
+                android:drawablePadding="-2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:text="99"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintTop_toBottomOf="@+id/imgHealth"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvDaysInGame"
+        />
+
+        <TextView
+                android:id="@+id/tvDaysInGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:text="2 days in a game"
+                app:layout_constraintTop_toTopOf="@+id/tvMoney"
+                app:layout_constraintStart_toEndOf="@+id/tvMoney"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvMoney"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
             android:id="@+id/imgBodybuilder"
             android:layout_width="192dp"
             android:layout_height="192dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clHeader"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
@@ -134,11 +176,12 @@
             android:id="@+id/bottom_nav_view"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginStart="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBodybuilder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:menu="@menu/bottom_nav_menu"/>
+            app:menu="@menu/bottom_nav_menu"
+            app:itemBackground="@color/orange"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
