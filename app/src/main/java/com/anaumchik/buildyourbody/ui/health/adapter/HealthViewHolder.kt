@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anaumchik.buildyourbody.data.entity.Health
-import com.anaumchik.buildyourbody.data.utils.PlayerSession
+import com.anaumchik.buildyourbody.data.utils.SessionManager
 import com.anaumchik.buildyourbody.data.utils.background
 import com.anaumchik.buildyourbody.data.utils.loadDrawable
 import kotlinx.android.synthetic.main.item_health.view.*
@@ -14,7 +14,7 @@ import org.koin.standalone.inject
 
 
 class HealthViewHolder(private val view: View) : RecyclerView.ViewHolder(view), KoinComponent {
-    private val playerSession = inject<PlayerSession>().value
+    private val playerSession = inject<SessionManager>().value
 
     var imgIcon: ImageView = view.imgIcon
     var tvTitle: TextView = view.tvTitle

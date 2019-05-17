@@ -27,6 +27,7 @@ version.koin = "1.0.2"
 version.room = "2.1.0-beta01"
 version.lifecycle = "2.2.0-alpha01"
 version.glide = "4.9.0"
+version.coroutines = "1.2.1"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -45,8 +46,8 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$version.room"
     kapt "android.arch.persistence.room:compiler:$version.room"
 
-    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version.coroutines"
 
     implementation "org.koin:koin-android:$version.koin"
     implementation "org.koin:koin-android-viewmodel:$version.koin"

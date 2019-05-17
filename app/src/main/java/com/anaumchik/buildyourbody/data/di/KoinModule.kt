@@ -1,6 +1,8 @@
 package com.anaumchik.buildyourbody.data.di
 
-import com.anaumchik.buildyourbody.data.utils.PlayerSession
+import com.anaumchik.buildyourbody.data.repositories.PlayerRepository
+import com.anaumchik.buildyourbody.data.utils.SessionManager
+import com.anaumchik.buildyourbody.data.utils.PlayerSharedPrefs
 import com.anaumchik.buildyourbody.ui.game.GameFragmentViewModel
 import com.anaumchik.buildyourbody.ui.health.HealthFragmentViewModel
 import com.anaumchik.buildyourbody.ui.health.HealthRepository
@@ -12,9 +14,11 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val koinModule = module {
-    single { PlayerSession() }
+    single { PlayerSharedPrefs(androidApplication()) }
+    single { SessionManager() }
+    single { PlayerRepository(androidApplication()) }
     single { HealthRepository(androidApplication()) }
-    viewModel { MainFragmentViewModel(get()) }
+    viewModel { MainFragmentViewModel(get(), get(), get()) }
     viewModel { GameFragmentViewModel(get()) }
     viewModel { WorkFragmentViewModel() }
     viewModel { HealthFragmentViewModel(get()) }
