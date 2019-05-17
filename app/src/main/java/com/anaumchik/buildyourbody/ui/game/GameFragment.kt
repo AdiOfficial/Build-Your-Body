@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.anaumchik.buildyourbody.R
 import com.anaumchik.buildyourbody.data.entity.Player
+import com.anaumchik.buildyourbody.data.utils.Logger.Companion.log
 import com.anaumchik.buildyourbody.data.utils.bottomNavMenuRouteTo
 import com.anaumchik.buildyourbody.data.utils.deselectItems
 import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
@@ -38,7 +39,7 @@ class GameFragment : Fragment() {
         toolbarTitle(R.string.app_name)
         bottom_nav_view.deselectItems()
         bottom_nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
+        viewModel.onInitLifecycle(lifecycle)
         observeViewModel()
     }
 
@@ -48,7 +49,7 @@ class GameFragment : Fragment() {
     }
 
     private fun updateGameProgress(player: Player) {
-        tvMoney.text = player.money.toString()
+        tvMoney.text = "${player.money}"
         tvDaysInGame.text = "${player.daysInGame} days in a game"
 
         pbHealth.progress = player.health

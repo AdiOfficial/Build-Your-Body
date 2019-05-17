@@ -5,6 +5,7 @@
     <string name="bottom_menu_work">Работа</string>
     <string name="bottom_menu_health">Здоровье</string>
     <string name="bottom_menu_shop">Шоппинг</string>
+    <string name="health_action_not_enough_money">Не хватает денег! Иди работать!</string>
 
     <string-array name="health_title">
         <item>Капнуть йод на язык</item>

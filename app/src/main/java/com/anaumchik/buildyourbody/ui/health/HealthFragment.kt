@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anaumchik.buildyourbody.R
-import com.anaumchik.buildyourbody.data.entity.Health
+import com.anaumchik.buildyourbody.data.entity.UpdateHealth
 import com.anaumchik.buildyourbody.data.utils.toolbarTitle
 import com.anaumchik.buildyourbody.ui.health.adapter.HealthAdapter
 import com.anaumchik.buildyourbody.ui.health.adapter.HealthAdapterListener
@@ -21,8 +21,8 @@ class HealthFragment : Fragment() {
     private val adapter by lazy { HealthAdapter() }
 
     private val adapterListener = object : HealthAdapterListener {
-        override fun onClick(health: Health) {
-            viewModel.onAdapterItemClick(health)
+        override fun onClick(updateHealth: UpdateHealth) {
+            viewModel.onAdapterItemClick(updateHealth)
         }
     }
 
@@ -47,6 +47,7 @@ class HealthFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.updateAdapter.observe(this, Observer { adapter.data = it })
+        viewModel.finish.observe(this, Observer { requireActivity().onBackPressed() })
     }
 }
 

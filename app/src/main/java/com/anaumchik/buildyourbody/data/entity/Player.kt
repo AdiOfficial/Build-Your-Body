@@ -7,12 +7,12 @@ import androidx.room.PrimaryKey
 data class Player(
     @PrimaryKey var id: Int = 0,
     var name: String = "",
-    var health: Int = 100,
-    var money: Double = 0.0,
+    var health: Int = 50,
+    var money: Int = 100,
     var daysInGame: Int = 1,
     var time: Int = 25,
     var maxTime: Int = 25,
     var experience: Int = 0,
-    var maxExperience: Int = 10,
+    var maxExperience: Int = 50,
     var lvl: Int = 1
 )

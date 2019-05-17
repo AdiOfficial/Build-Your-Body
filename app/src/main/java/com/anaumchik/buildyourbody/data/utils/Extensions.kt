@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,8 +16,12 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
+fun View.string(@StringRes stringRes: Int): String = this.context.getString(stringRes)
 fun Context.string(@StringRes stringRes: Int): String = this.getString(stringRes)
 fun Fragment.string(@StringRes stringRes: Int): String = this.getString(stringRes)
+
+fun View.toast(@StringRes stringRes: Int) =
+    Toast.makeText(this.context, this.string(stringRes), Toast.LENGTH_SHORT).show()
 
 fun Context.color(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
 

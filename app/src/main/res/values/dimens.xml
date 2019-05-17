@@ -18,4 +18,10 @@
         <item>5</item>
     </integer-array>
 
+    <integer-array name="health_experience">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+    </integer-array>
+
 </resources>

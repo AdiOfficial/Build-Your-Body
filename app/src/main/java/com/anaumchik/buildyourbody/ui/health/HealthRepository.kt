@@ -12,10 +12,20 @@ class HealthRepository(private val application: Application) {
         val healthPoints = application.resources.getIntArray(R.array.health_heath_point)
         val costs = application.resources.getIntArray(R.array.health_cost)
         val minLvls = application.resources.getIntArray(R.array.health_min_lvl)
+        val experiences = application.resources.getIntArray(R.array.health_experience)
 
         for (i in 0 until titles.size) {
             items.add(
-                Health(i, R.drawable.ic_bodybuilder, titles[i], descriptions[i], healthPoints[i], costs[i], minLvls[i])
+                Health(
+                    i,
+                    R.drawable.ic_bodybuilder,
+                    titles[i],
+                    descriptions[i],
+                    healthPoints[i],
+                    costs[i],
+                    minLvls[i],
+                    experiences[i]
+                )
             )
         }
 
