@@ -7,6 +7,7 @@ import com.anaumchik.buildyourbody.data.entity.Health
 import com.anaumchik.buildyourbody.data.entity.Player
 import com.anaumchik.buildyourbody.data.entity.UpdateHealth
 import com.anaumchik.buildyourbody.data.repositories.PlayerRepository
+import com.anaumchik.buildyourbody.data.utils.SessionManager
 import com.anaumchik.buildyourbody.data.utils.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -24,27 +25,40 @@ class HealthFragmentViewModel(
         updateAdapter.postValue(items)
     }
 
-    fun onAdapterItemClick(updateHealth: UpdateHealth) = getPlayer(updateHealth)
+    fun onAdapterItemClick(update: UpdateHealth) = getPlayer(update)
 
-    private fun getPlayer(updateHealth: UpdateHealth) = viewModelScope.launch(Dispatchers.IO) {
+    private fun getPlayer(update: UpdateHealth) = viewModelScope.launch(Dispatchers.IO) {
         val deferredPlayer = async(Dispatchers.IO) { playerRepository.getPlayer() }
         val player = deferredPlayer.await()
-        updatePlayer(updateHealth, player)
+        updatePlayer(update, player)
     }
 
-    private fun updatePlayer(
-        updateHealth: UpdateHealth,
-        player: Player
-    ) = viewModelScope.launch(Dispatchers.IO) {
-        player.health += updateHealth.healthPoint
-        player.money -= updateHealth.cost
+    private fun updatePlayer(update: UpdateHealth, player: Player) = viewModelScope.launch(Dispatchers.IO) {
+        player.health += update.adjustHealth
+        player.money -= update.costMoney
         player.time -= 1
         player.daysInGame += 1
-        player.experience += updateHealth.experience
+        player.experience += update.experience
+
+        if ((player.health + update.adjustHealth) >= player.maxHealth) player.health = player.maxHealth
+        if ((player.experience + update.experience) >= player.maxExperience) levelUp(player)
 
         playerRepository.updatePlayer(player)
 
         finishScreen()
+    }
+
+    private fun levelUp(player: Player) {
+        player.lvl++
+
+        player.experience = 0
+        player.maxExperience *= SessionManager.MULTIPLIER_EXPERIENCE.toInt()
+
+        player.maxTime *= SessionManager.MULTIPLIER_TIME.toInt()
+        player.time = player.maxTime
+
+        player.maxHealth *= SessionManager.MULTIPLIER_HEALTH.toInt()
+        player.health *= player.maxHealth
     }
 
     private fun finishScreen() = viewModelScope.launch(Dispatchers.Main) { finish.call() }

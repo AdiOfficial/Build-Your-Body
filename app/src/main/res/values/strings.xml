@@ -6,6 +6,8 @@
     <string name="bottom_menu_health">Здоровье</string>
     <string name="bottom_menu_shop">Шоппинг</string>
     <string name="health_action_not_enough_money">Не хватает денег! Иди работать!</string>
+    <string name="health_action_not_enough_health">Ты на пределе! Подкрепись!</string>
+    <string name="health_action_not_enough_time">Ты устал! Отдохни!</string>
 
     <string-array name="health_title">
         <item>Капнуть йод на язык</item>
@@ -17,5 +19,17 @@
         <item>Йод расжижает кровь</item>
         <item>Аспирин бодрит тело и дух</item>
         <item>Крапива заставляет бегать быстрее</item>
+    </string-array>
+
+    <string-array name="work_title">
+        <item>Размять пальцы рук</item>
+        <item>Сжимать пружинку от ручки</item>
+        <item>Встать со стула</item>
+    </string-array>
+
+    <string-array name="work_description">
+        <item>Хрусь-хрусь</item>
+        <item>Качаем пальцы</item>
+        <item>Ощущаем приток крови к ногам</item>
     </string-array>
 </resources>

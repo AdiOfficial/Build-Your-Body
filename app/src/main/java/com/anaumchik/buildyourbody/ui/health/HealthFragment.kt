@@ -21,8 +21,8 @@ class HealthFragment : Fragment() {
     private val adapter by lazy { HealthAdapter() }
 
     private val adapterListener = object : HealthAdapterListener {
-        override fun onClick(updateHealth: UpdateHealth) {
-            viewModel.onAdapterItemClick(updateHealth)
+        override fun onClick(update: UpdateHealth) {
+            viewModel.onAdapterItemClick(update)
         }
     }
 

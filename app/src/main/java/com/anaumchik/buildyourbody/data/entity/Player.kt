@@ -8,6 +8,7 @@ data class Player(
     @PrimaryKey var id: Int = 0,
     var name: String = "",
     var health: Int = 50,
+    var maxHealth: Int = 100,
     var money: Int = 100,
     var daysInGame: Int = 1,
     var time: Int = 25,

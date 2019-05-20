@@ -5,10 +5,16 @@ data class Health(
     val icon: Int,
     val title: String,
     val description: String,
-    val healthPoint: Int,
-    val cost: Int,
+    val adjustHealth: Int,
+    val costMoney: Int,
     val minLvl: Int,
     val experience: Int
 )
 
-fun Health.createUpdateHealth() = UpdateHealth(this.healthPoint, this.cost, this.experience)
+data class UpdateHealth(
+    val adjustHealth: Int,
+    val costMoney: Int,
+    val experience: Int
+)
+
+fun Health.createUpdateHealth() = UpdateHealth(this.adjustHealth, this.costMoney, this.experience)

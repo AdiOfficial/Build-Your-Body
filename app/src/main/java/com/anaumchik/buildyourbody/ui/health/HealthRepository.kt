@@ -9,8 +9,8 @@ class HealthRepository(private val application: Application) {
         val items = mutableListOf<Health>()
         val titles = application.resources.getStringArray(R.array.health_title)
         val descriptions = application.resources.getStringArray(R.array.health_description)
-        val healthPoints = application.resources.getIntArray(R.array.health_heath_point)
-        val costs = application.resources.getIntArray(R.array.health_cost)
+        val healthPoints = application.resources.getIntArray(R.array.health_adjust_health)
+        val costs = application.resources.getIntArray(R.array.health_cost_money)
         val minLvls = application.resources.getIntArray(R.array.health_min_lvl)
         val experiences = application.resources.getIntArray(R.array.health_experience)
 

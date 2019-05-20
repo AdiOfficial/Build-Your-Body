@@ -52,6 +52,7 @@ class GameFragment : Fragment() {
         tvMoney.text = "${player.money}"
         tvDaysInGame.text = "${player.daysInGame} days in a game"
 
+        pbHealth.max = player.maxHealth
         pbHealth.progress = player.health
 
         pbTime.max = player.maxTime

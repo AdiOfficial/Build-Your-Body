@@ -17,7 +17,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:src="@drawable/ic_bodybuilder"
+            tools:src="@drawable/ic_launcher"
     />
 
     <TextView
@@ -36,7 +36,7 @@
             app:layout_constraintStart_toEndOf="@+id/imgIcon"
             app:layout_constraintBottom_toTopOf="@+id/tvDescription"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:text="Health action"
+            tools:text="Work action"
     />
 
     <TextView
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
             app:layout_constraintStart_toEndOf="@+id/imgIcon"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="Health action description"
+            tools:text="Work action description"
     />
 
     <TextView
@@ -86,24 +86,7 @@
     />
 
     <TextView
-            android:id="@+id/tvAdjustHealth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textStyle="bold"
-            android:textSize="10sp"
-            android:textColor="@color/red"
-            android:includeFontPadding="false"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guidelineEnd"
-            app:layout_constraintBottom_toTopOf="@+id/tvCostMoney"
-            tools:text="+5hp"
-    />
-
-    <TextView
-            android:id="@+id/tvCostMoney"
+            android:id="@+id/tvAdjustMoney"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -113,10 +96,27 @@
             android:textColor="@color/green"
             android:includeFontPadding="false"
             android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvAdjustHealth"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guidelineEnd"
+            app:layout_constraintBottom_toTopOf="@+id/tvCostHealth"
+            tools:text="+5$"
+    />
+
+    <TextView
+            android:id="@+id/tvCostHealth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:textColor="@color/red"
+            android:includeFontPadding="false"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAdjustMoney"
             app:layout_constraintStart_toEndOf="@+id/guidelineEnd"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="-15$"
+            tools:text="-5hp"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

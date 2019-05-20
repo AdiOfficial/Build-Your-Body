@@ -1,12 +1,12 @@
 <resources>
 
-    <integer-array name="health_heath_point">
-        <item>5</item>
-        <item>8</item>
-        <item>13</item>
+    <integer-array name="health_adjust_health">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
     </integer-array>
 
-    <integer-array name="health_cost">
+    <integer-array name="health_cost_money">
         <item>10</item>
         <item>16</item>
         <item>26</item>
@@ -22,6 +22,30 @@
         <item>1</item>
         <item>3</item>
         <item>5</item>
+    </integer-array>
+
+    <integer-array name="work_adjust_money">
+        <item>5</item>
+        <item>8</item>
+        <item>13</item>
+    </integer-array>
+
+    <integer-array name="work_cost_health">
+        <item>10</item>
+        <item>16</item>
+        <item>26</item>
+    </integer-array>
+
+    <integer-array name="work_min_lvl">
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+    </integer-array>
+
+    <integer-array name="work_experience">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
     </integer-array>
 
 </resources>
