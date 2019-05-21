@@ -8,6 +8,15 @@
     <string name="health_action_not_enough_money">Не хватает денег! Иди работать!</string>
     <string name="health_action_not_enough_health">Ты на пределе! Подкрепись!</string>
     <string name="health_action_not_enough_time">Ты устал! Отдохни!</string>
+    <string name="ok">Ок</string>
+    <string name="dialog_level_up_title">Повышение уровня!</string>
+    <string name="dialog_level_up_description">Ты достиг %1d уровня! Посмотри, может в игре появилось что-то
+        новенькое!
+    </string>
+    <string name="player_name">Имя: %1$s</string>
+    <string name="player_lvl">%1$d уровень</string>
+    <string name="player_days_in_game">Дней в игре: %1$d</string>
+    <string name="player_money">$ %1$d</string>
 
     <string-array name="health_title">
         <item>Капнуть йод на язык</item>

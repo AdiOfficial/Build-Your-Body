@@ -7,9 +7,6 @@ import com.anaumchik.buildyourbody.data.entity.Player
 import com.anaumchik.buildyourbody.data.entity.UpdateWork
 import com.anaumchik.buildyourbody.data.entity.Work
 import com.anaumchik.buildyourbody.data.repositories.PlayerRepository
-import com.anaumchik.buildyourbody.data.utils.SessionManager.Companion.MULTIPLIER_EXPERIENCE
-import com.anaumchik.buildyourbody.data.utils.SessionManager.Companion.MULTIPLIER_HEALTH
-import com.anaumchik.buildyourbody.data.utils.SessionManager.Companion.MULTIPLIER_TIME
 import com.anaumchik.buildyourbody.data.utils.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -21,6 +18,7 @@ class WorkFragmentViewModel(
 ) : ViewModel() {
     val updateAdapter = MutableLiveData<List<Work>>()
     val finish = SingleLiveEvent<Unit>()
+    val showLevelUpDialog = SingleLiveEvent<Int>()
 
     init {
         val items = workRepository.getItems()
@@ -42,25 +40,19 @@ class WorkFragmentViewModel(
         player.daysInGame += 1
         player.experience += update.experience
 
-        if ((player.experience + update.experience) >= player.maxExperience) levelUp(player)
-
-        playerRepository.updatePlayer(player)
-
-        finishScreen()
+        if ((player.experience + update.experience) >= player.maxExperience) {
+            playerRepository.levelUp(player)
+            showLevelUpDialog(player.lvl)
+        } else {
+            playerRepository.updatePlayer(player)
+            finishScreen()
+        }
     }
 
-    private fun levelUp(player: Player) {
-        player.lvl++
+    private fun showLevelUpDialog(playerLvl: Int) =
+        viewModelScope.launch(Dispatchers.Main) { showLevelUpDialog.postValue(playerLvl) }
 
-        player.experience = 0
-        player.maxExperience *= MULTIPLIER_EXPERIENCE.toInt()
-
-        player.maxTime *= MULTIPLIER_TIME.toInt()
-        player.time = player.maxTime
-
-        player.maxHealth *= MULTIPLIER_HEALTH.toInt()
-        player.health *= player.maxHealth
-    }
+    fun onFinishScreen() = finishScreen()
 
     private fun finishScreen() = viewModelScope.launch(Dispatchers.Main) { finish.call() }
 }

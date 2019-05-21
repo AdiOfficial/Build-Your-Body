@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anaumchik.buildyourbody.R
 import com.anaumchik.buildyourbody.data.entity.UpdateWork
+import com.anaumchik.buildyourbody.data.utils.alertDialog
+import com.anaumchik.buildyourbody.data.utils.string
 import com.anaumchik.buildyourbody.data.utils.toolbarTitle
 import com.anaumchik.buildyourbody.ui.work.adapter.WorkAdapter
 import com.anaumchik.buildyourbody.ui.work.adapter.WorkAdapterListener
@@ -48,5 +50,17 @@ class WorkFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.updateAdapter.observe(this, Observer { adapter.data = it })
         viewModel.finish.observe(this, Observer { requireActivity().onBackPressed() })
+        viewModel.showLevelUpDialog.observe(this, Observer { showDialogLevelUp(it) })
+    }
+
+    private fun showDialogLevelUp(playerLvl: Int) {
+        alertDialog(
+            layoutRes = R.layout.dialog_level_up,
+            titleIdRes = R.id.tvTitle,
+            titleStringRes = R.string.dialog_level_up_title,
+            descriptionIdRes = R.id.tvDescription,
+            description = string(R.string.dialog_level_up_description, playerLvl),
+            btnIdRes = R.id.btnOk
+        ) { viewModel.onFinishScreen() }
     }
 }

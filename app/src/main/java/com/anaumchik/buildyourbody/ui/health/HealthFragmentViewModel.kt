@@ -7,7 +7,6 @@ import com.anaumchik.buildyourbody.data.entity.Health
 import com.anaumchik.buildyourbody.data.entity.Player
 import com.anaumchik.buildyourbody.data.entity.UpdateHealth
 import com.anaumchik.buildyourbody.data.repositories.PlayerRepository
-import com.anaumchik.buildyourbody.data.utils.SessionManager
 import com.anaumchik.buildyourbody.data.utils.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -19,6 +18,7 @@ class HealthFragmentViewModel(
 ) : ViewModel() {
     val updateAdapter = MutableLiveData<List<Health>>()
     val finish = SingleLiveEvent<Unit>()
+    val showLevelUpDialog = SingleLiveEvent<Int>()
 
     init {
         val items = healthRepository.getItems()
@@ -41,25 +41,20 @@ class HealthFragmentViewModel(
         player.experience += update.experience
 
         if ((player.health + update.adjustHealth) >= player.maxHealth) player.health = player.maxHealth
-        if ((player.experience + update.experience) >= player.maxExperience) levelUp(player)
 
-        playerRepository.updatePlayer(player)
-
-        finishScreen()
+        if ((player.experience + update.experience) >= player.maxExperience) {
+            playerRepository.levelUp(player)
+            showLevelUpDialog(player.lvl)
+        } else {
+            playerRepository.updatePlayer(player)
+            finishScreen()
+        }
     }
 
-    private fun levelUp(player: Player) {
-        player.lvl++
+    private fun showLevelUpDialog(playerLvl: Int) =
+        viewModelScope.launch(Dispatchers.Main) { showLevelUpDialog.postValue(playerLvl) }
 
-        player.experience = 0
-        player.maxExperience *= SessionManager.MULTIPLIER_EXPERIENCE.toInt()
-
-        player.maxTime *= SessionManager.MULTIPLIER_TIME.toInt()
-        player.time = player.maxTime
-
-        player.maxHealth *= SessionManager.MULTIPLIER_HEALTH.toInt()
-        player.health *= player.maxHealth
-    }
+    fun onFinishScreen() = finishScreen()
 
     private fun finishScreen() = viewModelScope.launch(Dispatchers.Main) { finish.call() }
 }

@@ -14,6 +14,6 @@ data class Player(
     var time: Int = 25,
     var maxTime: Int = 25,
     var experience: Int = 0,
-    var maxExperience: Int = 50,
+    var maxExperience: Int = 100,
     var lvl: Int = 1
 )

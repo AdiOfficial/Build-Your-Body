@@ -9,11 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.anaumchik.buildyourbody.R
 import com.anaumchik.buildyourbody.data.entity.Player
-import com.anaumchik.buildyourbody.data.utils.Logger.Companion.log
-import com.anaumchik.buildyourbody.data.utils.bottomNavMenuRouteTo
-import com.anaumchik.buildyourbody.data.utils.deselectItems
-import com.anaumchik.buildyourbody.data.utils.enableToolbarBackButton
-import com.anaumchik.buildyourbody.data.utils.toolbarTitle
+import com.anaumchik.buildyourbody.data.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_game.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -49,8 +45,10 @@ class GameFragment : Fragment() {
     }
 
     private fun updateGameProgress(player: Player) {
-        tvMoney.text = "${player.money}"
-        tvDaysInGame.text = "${player.daysInGame} days in a game"
+        tvPlayerName.text = string(R.string.player_name, player.name)
+        tvPlayerLvl.text = string(R.string.player_lvl, player.lvl)
+        tvMoney.text = string(R.string.player_money, player.money)
+        tvDaysInGame.text = string(R.string.player_days_in_game, player.daysInGame)
 
         pbHealth.max = player.maxHealth
         pbHealth.progress = player.health
@@ -60,5 +58,6 @@ class GameFragment : Fragment() {
 
         pbExperience.max = player.maxExperience
         pbExperience.progress = player.experience
+
     }
 }
